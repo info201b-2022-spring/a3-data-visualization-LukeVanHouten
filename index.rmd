@@ -1,0 +1,88 @@
+---
+title: "A3 - Data Visualization (Incarceration) "
+output: html_document
+date: '2022-05-22'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction and Summary Information
+
+I have chosen 5 variables that show the disparity between the incarceration of black and white Americans. These variables are:
+
+### Max Black Jail Incarceration
+
+Lists the jail population for the year and location of the most amount of black inmates.
+
+```{r max_black_jail, echo=FALSE, message=FALSE}
+source("analysis.R")
+max_black_jail_incarceration
+```
+
+Not only is Los Angeles a very large metropolitan area with a large black populace, but 1993 was also one year after the 1992 LA Riots stemming from the arrest and assault of Rodney King. Many enraged African Americans who had been arrested during the riots would still be in jail due to the inability to post bail as a result of economic inequality.
+
+### Max Black Prison Incarceration
+
+Lists the prison population for the year and location of the most amount of black inmates.
+
+```{r max_black_prison, echo=FALSE, message=FALSE}
+max_black_prison_incarceration
+```
+
+New York City has the most black people out of any city in the United States, and also has a vast prison system, including the notorious Rikers Island. New York City had exceptionally high crime rates in the late 1980's and 1990's, and therefore 1998 is one of the first years where those who had been sentenced for those crimes, many of them black, would be incarcerated.
+
+### Mean White Jail Incarceration Per State
+
+Lists the mean jail population of white inmates per state between 1970 and 2018.
+
+```{r mean_white_state, echo=FALSE, message=FALSE}
+print.data.frame(mean_white_incarceration)
+```
+
+Data is insufficient in Alabama, Connecticut, Delaware, Hawaii, Rhode Island, and Vermont.
+
+### Mean Black Jail Incarceration Per State
+
+Lists the mean jail population of black inmates per state between 1970 and 2018.
+
+```{r mean_black_state, echo=FALSE, message=FALSE}
+print.data.frame(mean_black_incarceration)
+```
+
+Data is insufficient in Alabama, Connecticut, Delaware, Hawaii, Rhode Island, and Vermont.
+
+### Black Prison Incarceration Change
+
+The change in population of black prison inmates between 1990 and 2016.
+
+```{r black_prison_change, echo=FALSE, message=FALSE}
+black_prison_incarceration_change
+```
+
+Between 1990 and 2016 (the set of years with the most complete data), the amount of black people in prisons across the united states more than doubled. The primary reason for this is increased economic inequality throughout that time period.
+
+# Trends Over Time Chart
+
+```{r black_white_trend_chart, echo=FALSE, message=FALSE}
+incarceration_plot
+```
+
+This chart compares both the prison and jail incarceration of both black and white populations from 1990-2016. Crime reached an all-time high in the mid 1990's, with those charged being eventually incarcerated beginning in the mid 2000's. Crime has been down since then, so trends are tending downwards. Despite having a much smaller share of the population, black people are disproportionately represented in both jails and prisons across the United States, with the latter being much higher. Conversely, white incarceration is low, and there is little difference between the prison and jail trendlines.
+
+# Variable Comparison Chart
+
+```{r black_pop_trend_chart, echo=FALSE, message=FALSE}
+black_pop_incarceration_comparison_plot
+```
+
+This logarithmic chart shows the comparison between the general black population and the incarcerated black population (both prison and jail) between 1990 and 2016. The black population has been steadily increasing since 1990, while the incarceration rate has been on the downturn since a peak in about 2008. The increase was sharpest the early 1990's when compared to the much more steady population change. Using a logarithmic chart allows for these very different values to be compared to each other, as there are many more non-incarcerated black people than there are incarcerated ones.
+
+# Map
+
+```{r black_incarceration_map, echo=FALSE, message=FALSE}
+incarceration_map
+```
+
+This is a chloropleth map that shows the levels of total incarceration of black people throughout the United States. This data is accumulative between 1990 and 2016. The darkest states have the most black incarceration because they have the largest black populations as well. States without sufficient data are Alabama, Alaska, Connecticut, Hawaii, and Virginia.
